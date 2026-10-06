@@ -1,24 +1,36 @@
-_Author_:  <!-- TODO: Add author name --> \
-_Created_: <!-- TODO: Add date --> \
-_Updated_: <!-- TODO: Add date --> \
+_Author_:  @DimuthuMadushan \
+_Created_: 2026/10/06 \
+_Updated_: 2026/10/06 \
 _Edition_: Swan Lake
 
 # Sanitation for OpenAPI specification
 
-This document records the sanitation done on top of the official OpenAPI specification from Commercetools. 
-The OpenAPI specification is obtained from (TODO: Add source link).
+This document records the sanitation done on top of the official OpenAPI specification from Commercetools.
+The OpenAPI specification is obtained from [https://github.com/wso2/api-specs/blob/main/openapi/commercetools/pricingdiscount/v1/openapi.yaml](https://github.com/wso2/api-specs/blob/main/openapi/commercetools/pricingdiscount/v1/openapi.yaml).
 These changes are done in order to improve the overall usability, and as workarounds for some known language limitations.
 
-[//]: # (TODO: Add sanitation details)
-1. 
-2. 
-3. 
+1. **Subset the spec to the previous connector's 30 operations.** The source spec is the full commercetools Composable Commerce API. Only these operations under `/{projectKey}` were kept: `cart-discounts` (GET, POST), `cart-discounts/key={key}` (GET, POST, DELETE), `cart-discounts/{ID}` (GET, POST, DELETE), `discount-codes` (GET, POST), `discount-codes/{ID}` (GET, POST, DELETE), `product-discounts` (GET, POST), `product-discounts/key={key}` (GET, POST, DELETE), `product-discounts/matching` (POST), `product-discounts/{ID}` (GET, POST, DELETE), `tax-categories` (GET, POST), `tax-categories/key={key}` (GET, POST, DELETE) and `tax-categories/{ID}` (GET, POST, DELETE). All HEAD operations, all `/in-store/...` paths, `discount-codes/key={key}` and every other path were dropped. `components` was pruned to the transitive closure of the referenced schemas and responses (including `discriminator.mapping` targets, so every polymorphic subtype such as the `*UpdateAction` variants survives; the mappings of the generic `Reference`, `ResourceIdentifier`, `KeyReference` and `ErrorObject` families are not followed, as they span the whole API), plus the `oauth_2_0` security scheme: 260 schemas and 8 responses. Items 1 and 2 are scripted: `python3 docs/resources/script.py` downloads the source spec (cached beside the script as `commercetools-openapi.yaml`, untracked; drop a local copy there if the download fails) and rewrites `docs/spec/openapi.yaml`. Re-running it drops items 3 onward (3 to 8), which must be re-applied after it.
+
+2. **Prune dangling discriminator mappings.** `Reference` keeps `cart-discount`, `category`, `channel`, `customer`, `customer-group`, `discount-group`, `product`, `product-discount`, `product-type`, `recurrence-policy`, `state`, `tax-category`, `type` and `variant`; `ResourceIdentifier` keeps `cart-discount`, `channel`, `discount-group`, `product`, `recurrence-policy`, `store` and `type`; `KeyReference` keeps `store`. The `discriminator` of `ErrorObject` was removed because none of its targets survive.
+
+3. **Remove a bogus required property from `ErrorObject`.** The `required` list contained `//` (from a comment in the vendor's source definition). It was removed so the schema only requires `code` and `message`.
+
+4. **Replace the templated server URL with a concrete one.** `https://api.{region}.commercetools.com` was replaced by `https://api.us-central1.gcp.commercetools.com`, so the generated client has a matching default `serviceUrl`.
+
+5. **Match the token URL region to the server.** `securitySchemes.oauth_2_0.flows.clientCredentials.tokenUrl` was changed from `https://auth.europe-west1.gcp.commercetools.com/oauth/token` to `https://auth.us-central1.gcp.commercetools.com/oauth/token`.
+
+6. **Add missing operation summaries and generic response descriptions.** Every operation gained a one-line `summary` (for example "Query cart discounts", "Update a tax category by key"), and the generic `'200'`/`'201'` success descriptions were replaced with descriptions of the returned cart discount, discount code, product discount, tax category or paged list. The 12 inline request bodies also got a one-line description through the generator's description step on the aligned spec.
+
+7. **Describe every inline parameter.** All 80 inline parameter definitions had no `description`, which made `bal build` warn about an undocumented parameter or field for each one. Each now has a description of its commercetools HTTP API meaning: path `projectKey` (12) "`key` of the Project.", `key` (3) and `ID` (4) the user-defined and system identifiers of the resource; query `expand` (29), `sort`, `limit`, `offset`, `withTotal` and `where` (4 each) the standard expansion, sorting, paging and predicate parameters, with the API defaults and maximums; the `/^var[.][a-zA-Z0-9]+$/` pattern parameter (4) the predicate input variables; `version` (7) the expected version for optimistic concurrency control; and `dataErasure` (1). The same change was made in `aligned_ballerina_openapi.json` and `.yaml`, and the client was regenerated from the aligned spec.
+
+8. **Rename the by-ID path parameter to `id`.** The four `/{projectKey}/{cart-discounts|discount-codes|product-discounts|tax-categories}/{ID}` paths used `{ID}` / `name: ID`, which the align step turned into `iD`, so the 12 by-ID client methods took `string iD`. The path template and parameter name were renamed to `{id}` / `id` in `openapi.yaml` (and `iD` to `id` in the aligned spec and `ai-mappings.json`), so the methods take `id`. The parameter descriptions from item 7 are kept.
 
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
 
 ```bash
-# TODO: Add OpenAPI CLI command used to generate the client
+bal openapi -i docs/spec/aligned_ballerina_openapi.json -o ballerina --mode client --client-methods remote --license docs/license.txt
 ```
+
 Note: The license year is hardcoded to 2024, change if necessary.
