@@ -52,8 +52,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: offset
         description: Number of results to skip, for paging. Default 0, maximum 10000.
@@ -62,8 +61,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: withTotal
         description: Whether to calculate and return `total` in the response. Default `true`.
@@ -76,20 +74,6 @@ paths:
         explode: true
       - name: where
         description: Query predicate that filters the results. Can be repeated.
-        in: query
-        required: false
-        style: form
-        schema:
-          type: array
-          items:
-            type: string
-        explode: true
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: 'Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.'
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
         in: query
         required: false
         style: form
@@ -279,8 +263,7 @@ paths:
         required: true
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: expand
         description: Reference path to expand in the response. Can be repeated.
@@ -430,8 +413,7 @@ paths:
         required: true
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: expand
         description: Reference path to expand in the response. Can be repeated.
@@ -513,8 +495,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: offset
         description: Number of results to skip, for paging. Default 0, maximum 10000.
@@ -523,8 +504,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: withTotal
         description: Whether to calculate and return `total` in the response. Default `true`.
@@ -537,20 +517,6 @@ paths:
         explode: true
       - name: where
         description: Query predicate that filters the results. Can be repeated.
-        in: query
-        required: false
-        style: form
-        schema:
-          type: array
-          items:
-            type: string
-        explode: true
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: 'Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.'
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
         in: query
         required: false
         style: form
@@ -753,8 +719,7 @@ paths:
         required: true
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: expand
         description: Reference path to expand in the response. Can be repeated.
@@ -836,8 +801,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: offset
         description: Number of results to skip, for paging. Default 0, maximum 10000.
@@ -846,8 +810,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: withTotal
         description: Whether to calculate and return `total` in the response. Default `true`.
@@ -860,20 +823,6 @@ paths:
         explode: true
       - name: where
         description: Query predicate that filters the results. Can be repeated.
-        in: query
-        required: false
-        style: form
-        schema:
-          type: array
-          items:
-            type: string
-        explode: true
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: 'Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.'
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
         in: query
         required: false
         style: form
@@ -1061,8 +1010,7 @@ paths:
         required: true
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: expand
         description: Reference path to expand in the response. Can be repeated.
@@ -1257,8 +1205,7 @@ paths:
         required: true
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: expand
         description: Reference path to expand in the response. Can be repeated.
@@ -1340,8 +1287,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: offset
         description: Number of results to skip, for paging. Default 0, maximum 10000.
@@ -1350,8 +1296,7 @@ paths:
         required: false
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: withTotal
         description: Whether to calculate and return `total` in the response. Default `true`.
@@ -1364,20 +1309,6 @@ paths:
         explode: true
       - name: where
         description: Query predicate that filters the results. Can be repeated.
-        in: query
-        required: false
-        style: form
-        schema:
-          type: array
-          items:
-            type: string
-        explode: true
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: 'Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.'
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
         in: query
         required: false
         style: form
@@ -1566,8 +1497,7 @@ paths:
         required: true
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: expand
         description: Reference path to expand in the response. Can be repeated.
@@ -1717,8 +1647,7 @@ paths:
         required: true
         style: form
         schema:
-          type: number
-          format: double
+          type: integer
         explode: true
       - name: expand
         description: Reference path to expand in the response. Can be repeated.

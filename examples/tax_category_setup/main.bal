@@ -57,7 +57,7 @@ public function main() returns error? {
     // Step 4: Remove the category again when requested
     if deleteAfterwards {
         pricingdiscount:TaxCategory deleted =
-            check commercetools->deleteTaxCategoryById(projectKey, verified.id, version = <decimal>verified.version);
+            check commercetools->deleteTaxCategoryById(projectKey, verified.id, version = verified.version);
         io:println(string `Deleted tax category ${deleted.id}`);
     }
 }

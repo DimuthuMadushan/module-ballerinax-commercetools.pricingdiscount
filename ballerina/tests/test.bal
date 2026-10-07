@@ -118,7 +118,7 @@ isolated function testDeleteCartDiscountById() returns error? {
         cartPredicate: "true",
         value: {'type: "relative", "permyriad": 500}
     });
-    CartDiscount deleted = check commercetools->deleteCartDiscountById(projectKey, created.id, version = <decimal>created.version);
+    CartDiscount deleted = check commercetools->deleteCartDiscountById(projectKey, created.id, version = created.version);
     test:assertEquals(deleted.id, created.id);
 }
 
@@ -131,7 +131,7 @@ isolated function testDeleteCartDiscountByKey() returns error? {
         cartPredicate: "true",
         value: {'type: "relative", "permyriad": 500}
     });
-    CartDiscount deleted = check commercetools->deleteCartDiscountByKey(projectKey, created.'key ?: "key-to-delete", version = <decimal>created.version);
+    CartDiscount deleted = check commercetools->deleteCartDiscountByKey(projectKey, created.'key ?: "key-to-delete", version = created.version);
     test:assertEquals(deleted.'key, "key-to-delete");
 }
 
@@ -193,7 +193,7 @@ isolated function testDeleteDiscountCodeById() returns error? {
         code: "DELETEME",
         cartDiscounts: [{typeId: "cart-discount", id: CART_DISCOUNT_ID}]
     });
-    DiscountCode deleted = check commercetools->deleteDiscountCodeById(projectKey, created.id, version = <decimal>created.version);
+    DiscountCode deleted = check commercetools->deleteDiscountCodeById(projectKey, created.id, version = created.version);
     test:assertEquals(deleted.id, created.id);
 }
 
@@ -265,7 +265,7 @@ isolated function testDeleteProductDiscountById() returns error? {
         isActive: false,
         value: {'type: "relative", "permyriad": 100}
     });
-    ProductDiscount deleted = check commercetools->deleteProductDiscountById(projectKey, created.id, version = <decimal>created.version);
+    ProductDiscount deleted = check commercetools->deleteProductDiscountById(projectKey, created.id, version = created.version);
     test:assertEquals(deleted.id, created.id);
 }
 
@@ -314,6 +314,6 @@ isolated function testUpdateTaxCategoryById() returns error? {
 isolated function testDeleteTaxCategoryById() returns error? {
     Client commercetools = check getClient();
     TaxCategory created = check commercetools->createTaxCategory(projectKey, {name: "Delete me"});
-    TaxCategory deleted = check commercetools->deleteTaxCategoryById(projectKey, created.id, version = <decimal>created.version);
+    TaxCategory deleted = check commercetools->deleteTaxCategoryById(projectKey, created.id, version = created.version);
     test:assertEquals(deleted.id, created.id);
 }

@@ -31,7 +31,7 @@ public type RecurringOrderScope record {
 
 # Represents the Queries record for the operation: updateProductDiscountByKey
 public type UpdateProductDiscountByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -161,21 +161,18 @@ public type ProductDiscountDraft record {
 
 # Represents the Queries record for the operation: listTaxCategories
 public type ListTaxCategoriesQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Number of results to skip, for paging. Default 0, maximum 10000.
-    decimal offset?;
-    # Whether to calculate and return `total` in the response. Default `true`.
+    # Number of results to skip, for paging. Default 0, maximum 10000
+    int offset?;
+    # Whether to calculate and return `total` in the response. Default `true`
     boolean withTotal?;
-    # Maximum number of results to return. Default 20, maximum 500.
-    decimal 'limit?;
-    # Query predicate that filters the results. Can be repeated.
+    # Maximum number of results to return. Default 20, maximum 500
+    int 'limit?;
+    # Query predicate that filters the results. Can be repeated
     string[] 'where?;
-    # Sort expression, such as `createdAt desc`. Can be repeated.
+    # Sort expression, such as `createdAt desc`. Can be repeated
     string[] sort?;
-    # Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.
-    @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"}
-    string[] slashCaretVarAZAZ09?;
 };
 
 # Provides a set of configurations for controlling the behaviours when communicating with a remote HTTP endpoint.
@@ -228,40 +225,34 @@ public type ProductDiscountValue record {
 
 # Represents the Queries record for the operation: listDiscountCodes
 public type ListDiscountCodesQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Number of results to skip, for paging. Default 0, maximum 10000.
-    decimal offset?;
-    # Whether to calculate and return `total` in the response. Default `true`.
+    # Number of results to skip, for paging. Default 0, maximum 10000
+    int offset?;
+    # Whether to calculate and return `total` in the response. Default `true`
     boolean withTotal?;
-    # Maximum number of results to return. Default 20, maximum 500.
-    decimal 'limit?;
-    # Query predicate that filters the results. Can be repeated.
+    # Maximum number of results to return. Default 20, maximum 500
+    int 'limit?;
+    # Query predicate that filters the results. Can be repeated
     string[] 'where?;
-    # Sort expression, such as `createdAt desc`. Can be repeated.
+    # Sort expression, such as `createdAt desc`. Can be repeated
     string[] sort?;
-    # Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.
-    @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"}
-    string[] slashCaretVarAZAZ09?;
 };
 
 # Represents the Queries record for the operation: listProductDiscounts
 public type ListProductDiscountsQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Number of results to skip, for paging. Default 0, maximum 10000.
-    decimal offset?;
-    # Whether to calculate and return `total` in the response. Default `true`.
+    # Number of results to skip, for paging. Default 0, maximum 10000
+    int offset?;
+    # Whether to calculate and return `total` in the response. Default `true`
     boolean withTotal?;
-    # Maximum number of results to return. Default 20, maximum 500.
-    decimal 'limit?;
-    # Query predicate that filters the results. Can be repeated.
+    # Maximum number of results to return. Default 20, maximum 500
+    int 'limit?;
+    # Query predicate that filters the results. Can be repeated
     string[] 'where?;
-    # Sort expression, such as `createdAt desc`. Can be repeated.
+    # Sort expression, such as `createdAt desc`. Can be repeated
     string[] sort?;
-    # Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.
-    @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"}
-    string[] slashCaretVarAZAZ09?;
 };
 
 public type CreatedBy record {
@@ -301,19 +292,19 @@ public type TaxCategoryDraft record {
 
 # Represents the Queries record for the operation: updateTaxCategoryByKey
 public type UpdateTaxCategoryByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
 # Represents the Queries record for the operation: getDiscountCodeById
 public type GetDiscountCodeByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
 # Represents the Queries record for the operation: getTaxCategoryById
 public type GetTaxCategoryByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -329,15 +320,15 @@ public type LastModifiedBy record {
 
 # Represents the Queries record for the operation: deleteCartDiscountByKey
 public type DeleteCartDiscountByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Expected current version of the resource, for optimistic concurrency control.
-    decimal version;
+    # Expected current version of the resource, for optimistic concurrency control
+    int version;
 };
 
 # Represents the Queries record for the operation: createProductDiscount
 public type CreateProductDiscountQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -350,7 +341,7 @@ public type StoreResourceIdentifier record {
 
 # Represents the Queries record for the operation: getTaxCategoryByKey
 public type GetTaxCategoryByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -367,27 +358,24 @@ public type DiscountGroupResourceIdentifier record {
 
 # Represents the Queries record for the operation: updateCartDiscountByKey
 public type UpdateCartDiscountByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
 # Represents the Queries record for the operation: listCartDiscounts
 public type ListCartDiscountsQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Number of results to skip, for paging. Default 0, maximum 10000.
-    decimal offset?;
-    # Whether to calculate and return `total` in the response. Default `true`.
+    # Number of results to skip, for paging. Default 0, maximum 10000
+    int offset?;
+    # Whether to calculate and return `total` in the response. Default `true`
     boolean withTotal?;
-    # Maximum number of results to return. Default 20, maximum 500.
-    decimal 'limit?;
-    # Query predicate that filters the results. Can be repeated.
+    # Maximum number of results to return. Default 20, maximum 500
+    int 'limit?;
+    # Query predicate that filters the results. Can be repeated
     string[] 'where?;
-    # Sort expression, such as `createdAt desc`. Can be repeated.
+    # Sort expression, such as `createdAt desc`. Can be repeated
     string[] sort?;
-    # Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.
-    @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"}
-    string[] slashCaretVarAZAZ09?;
 };
 
 public type CustomerGroupReference record {
@@ -459,11 +447,11 @@ public type Reference record {
 
 # Represents the Queries record for the operation: deleteDiscountCodeById
 public type DeleteDiscountCodeByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Expected current version of the resource, for optimistic concurrency control.
-    decimal version;
-    # Whether to erase all personal data related to the resource. Default `false`.
+    # Expected current version of the resource, for optimistic concurrency control
+    int version;
+    # Whether to erase all personal data related to the resource. Default `false`
     boolean dataErasure?;
 };
 
@@ -483,10 +471,10 @@ public type TaxCategory record {
 
 # Represents the Queries record for the operation: deleteCartDiscountById
 public type DeleteCartDiscountByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Expected current version of the resource, for optimistic concurrency control.
-    decimal version;
+    # Expected current version of the resource, for optimistic concurrency control
+    int version;
 };
 
 public type ReferenceTypeId "approval-flow"|"approval-rule"|"associate-role"|"attribute-group"|"business-unit"|"cart"|"cart-discount"|"category"|"channel"|"customer"|"customer-email-token"|"customer-group"|"customer-password-token"|"direct-discount"|"discount-code"|"discount-group"|"extension"|"inventory-entry"|"key-value-document"|"mcp-server"|"order"|"order-edit"|"payment-method"|"payment"|"product"|"product-discount"|"product-price"|"product-selection"|"product-tailoring"|"product-type"|"quote"|"quote-request"|"recurrence-policy"|"recurring-order"|"reservation"|"review"|"shipping-method"|"shopping-list"|"staged-quote"|"standalone-price"|"state"|"store"|"subscription"|"tax-category"|"type"|"variant"|"zone";
@@ -535,19 +523,19 @@ public type DiscountedPriceDraft record {
 
 # Represents the Queries record for the operation: updateProductDiscountById
 public type UpdateProductDiscountByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
 # Represents the Queries record for the operation: updateTaxCategoryById
 public type UpdateTaxCategoryByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
 # Represents the Queries record for the operation: getProductDiscountById
 public type GetProductDiscountByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -597,21 +585,21 @@ public type CartDiscountTarget record {
 
 # Represents the Queries record for the operation: getCartDiscountById
 public type GetCartDiscountByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
 # Represents the Queries record for the operation: deleteProductDiscountByKey
 public type DeleteProductDiscountByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Expected current version of the resource, for optimistic concurrency control.
-    decimal version;
+    # Expected current version of the resource, for optimistic concurrency control
+    int version;
 };
 
 # Represents the Queries record for the operation: createCartDiscount
 public type CreateCartDiscountQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -646,15 +634,15 @@ public type FieldDefinition record {
 
 # Represents the Queries record for the operation: deleteTaxCategoryById
 public type DeleteTaxCategoryByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Expected current version of the resource, for optimistic concurrency control.
-    decimal version;
+    # Expected current version of the resource, for optimistic concurrency control
+    int version;
 };
 
 # Represents the Queries record for the operation: createDiscountCode
 public type CreateDiscountCodeQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -709,7 +697,7 @@ public type CustomerGroup record {
 
 # Represents the Queries record for the operation: getCartDiscountByKey
 public type GetCartDiscountByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -760,10 +748,10 @@ public type ProductDiscount record {
 
 # Represents the Queries record for the operation: deleteTaxCategoryByKey
 public type DeleteTaxCategoryByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Expected current version of the resource, for optimistic concurrency control.
-    decimal version;
+    # Expected current version of the resource, for optimistic concurrency control
+    int version;
 };
 
 public type Attribution record {
@@ -787,10 +775,10 @@ public type RecurringOrderScopeDraft record {
 
 # Represents the Queries record for the operation: deleteProductDiscountById
 public type DeleteProductDiscountByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
-    # Expected current version of the resource, for optimistic concurrency control.
-    decimal version;
+    # Expected current version of the resource, for optimistic concurrency control
+    int version;
 };
 
 public type GeoJson record {
@@ -806,7 +794,7 @@ public type TypeResourceIdentifier record {
 
 # Represents the Queries record for the operation: createTaxCategory
 public type CreateTaxCategoryQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -843,7 +831,7 @@ public type AttributionSource "Import"|"Export";
 
 # Represents the Queries record for the operation: updateCartDiscountById
 public type UpdateCartDiscountByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -884,7 +872,7 @@ public type DiscountGroupReference record {
 
 # Represents the Queries record for the operation: updateDiscountCodeById
 public type UpdateDiscountCodeByIdQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 
@@ -954,7 +942,7 @@ public type SubRate record {
 
 # Represents the Queries record for the operation: getProductDiscountByKey
 public type GetProductDiscountByKeyQueries record {
-    # Reference path to expand in the response. Can be repeated.
+    # Reference path to expand in the response. Can be repeated
     string[] expand?;
 };
 

@@ -34,20 +34,20 @@ public isolated client class Client {
 
     # Query cart discounts
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - A paged list of cart discounts 
     remote isolated function listCartDiscounts(string projectKey, map<string|string[]> headers = {}, *ListCartDiscountsQueries queries) returns CartDiscountPagedQueryResponse|error {
         string resourcePath = string `/${getEncodedUri(projectKey)}/cart-discounts`;
-        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}, "/^var[.][a-zA-Z0-9]+$/": {style: FORM, explode: true}};
+        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
         return self.clientEp->get(resourcePath, headers);
     }
 
     # Create a cart discount
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Cart discount draft to create 
@@ -64,8 +64,8 @@ public isolated client class Client {
 
     # Get a cart discount by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The cart discount 
@@ -78,8 +78,8 @@ public isolated client class Client {
 
     # Update a cart discount by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Version and update actions for the cart discount 
@@ -96,8 +96,8 @@ public isolated client class Client {
 
     # Delete a cart discount by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The cart discount 
@@ -110,8 +110,8 @@ public isolated client class Client {
 
     # Get a cart discount by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The cart discount 
@@ -124,8 +124,8 @@ public isolated client class Client {
 
     # Update a cart discount by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Version and update actions for the cart discount 
@@ -142,8 +142,8 @@ public isolated client class Client {
 
     # Delete a cart discount by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The cart discount 
@@ -156,20 +156,20 @@ public isolated client class Client {
 
     # Query discount codes
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - A paged list of discount codes 
     remote isolated function listDiscountCodes(string projectKey, map<string|string[]> headers = {}, *ListDiscountCodesQueries queries) returns DiscountCodePagedQueryResponse|error {
         string resourcePath = string `/${getEncodedUri(projectKey)}/discount-codes`;
-        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}, "/^var[.][a-zA-Z0-9]+$/": {style: FORM, explode: true}};
+        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
         return self.clientEp->get(resourcePath, headers);
     }
 
     # Create a discount code
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Discount code draft to create 
@@ -186,8 +186,8 @@ public isolated client class Client {
 
     # Get a discount code by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The discount code 
@@ -200,8 +200,8 @@ public isolated client class Client {
 
     # Update a discount code by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Version and update actions for the discount code 
@@ -218,8 +218,8 @@ public isolated client class Client {
 
     # Delete a discount code by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The discount code 
@@ -232,20 +232,20 @@ public isolated client class Client {
 
     # Query product discounts
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - A paged list of product discounts 
     remote isolated function listProductDiscounts(string projectKey, map<string|string[]> headers = {}, *ListProductDiscountsQueries queries) returns ProductDiscountPagedQueryResponse|error {
         string resourcePath = string `/${getEncodedUri(projectKey)}/product-discounts`;
-        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}, "/^var[.][a-zA-Z0-9]+$/": {style: FORM, explode: true}};
+        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
         return self.clientEp->get(resourcePath, headers);
     }
 
     # Create a product discount
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Product discount draft to create 
@@ -262,8 +262,8 @@ public isolated client class Client {
 
     # Get a product discount by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The product discount 
@@ -276,8 +276,8 @@ public isolated client class Client {
 
     # Update a product discount by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Version and update actions for the product discount 
@@ -294,8 +294,8 @@ public isolated client class Client {
 
     # Delete a product discount by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The product discount 
@@ -308,7 +308,7 @@ public isolated client class Client {
 
     # Get the product discount matching a product price
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + payload - Product and price to match against product discounts 
     # + return - The product discount 
@@ -322,8 +322,8 @@ public isolated client class Client {
 
     # Get a product discount by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The product discount 
@@ -336,8 +336,8 @@ public isolated client class Client {
 
     # Update a product discount by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Version and update actions for the product discount 
@@ -354,8 +354,8 @@ public isolated client class Client {
 
     # Delete a product discount by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The product discount 
@@ -368,20 +368,20 @@ public isolated client class Client {
 
     # Query tax categories
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - A paged list of tax categories 
     remote isolated function listTaxCategories(string projectKey, map<string|string[]> headers = {}, *ListTaxCategoriesQueries queries) returns TaxCategoryPagedQueryResponse|error {
         string resourcePath = string `/${getEncodedUri(projectKey)}/tax-categories`;
-        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}, "/^var[.][a-zA-Z0-9]+$/": {style: FORM, explode: true}};
+        map<Encoding> queryParamEncoding = {"expand": {style: FORM, explode: true}, "sort": {style: FORM, explode: true}, "where": {style: FORM, explode: true}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
         return self.clientEp->get(resourcePath, headers);
     }
 
     # Create a tax category
     #
-    # + projectKey - `key` of the Project.
+    # + projectKey - `key` of the Project
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Tax category draft to create 
@@ -398,8 +398,8 @@ public isolated client class Client {
 
     # Get a tax category by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The tax category 
@@ -412,8 +412,8 @@ public isolated client class Client {
 
     # Update a tax category by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Version and update actions for the tax category 
@@ -430,8 +430,8 @@ public isolated client class Client {
 
     # Delete a tax category by key
     #
-    # + projectKey - `key` of the Project.
-    # + 'key - User-defined unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + 'key - User-defined unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The tax category 
@@ -444,8 +444,8 @@ public isolated client class Client {
 
     # Get a tax category by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The tax category 
@@ -458,8 +458,8 @@ public isolated client class Client {
 
     # Update a tax category by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + payload - Version and update actions for the tax category 
@@ -476,8 +476,8 @@ public isolated client class Client {
 
     # Delete a tax category by ID
     #
-    # + projectKey - `key` of the Project.
-    # + id - Unique identifier of the resource.
+    # + projectKey - `key` of the Project
+    # + id - Unique identifier of the resource
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - The tax category 

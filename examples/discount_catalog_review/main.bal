@@ -10,9 +10,13 @@ configurable string clientSecret = ?;
 configurable string tokenUrl = ?;
 configurable string apiUrl = ?;
 configurable string projectKey = ?;
-configurable decimal pageSize = 50;
+configurable int pageSize = 50;
 
 public function main() returns error? {
+    if pageSize <= 0 {
+        return error(string `pageSize must be greater than 0, but was ${pageSize}`);
+    }
+
     pricingdiscount:Client commercetools = check new ({
         auth: {
             tokenUrl,
@@ -23,12 +27,12 @@ public function main() returns error? {
 
     // Step 1: Collect all cart discounts, following the pages until a short page is returned
     pricingdiscount:CartDiscount[] cartDiscounts = [];
-    decimal offset = 0;
+    int offset = 0;
     while true {
         pricingdiscount:CartDiscountPagedQueryResponse page =
             check commercetools->listCartDiscounts(projectKey, 'limit = pageSize, offset = offset);
         cartDiscounts.push(...page.results);
-        if <decimal>page.results.length() < pageSize {
+        if page.results.length() < pageSize {
             break;
         }
         offset += pageSize;
@@ -39,17 +43,35 @@ public function main() returns error? {
     }
     io:println(string `Cart discounts: ${cartDiscounts.length()}`);
 
-    // Step 2: Count the product discounts that are currently active
-    pricingdiscount:ProductDiscountPagedQueryResponse productDiscounts =
-        check commercetools->listProductDiscounts(projectKey, 'limit = pageSize);
-    int activeProductDiscounts = productDiscounts.results.filter(d => d.isActive).length();
-    io:println(string `Product discounts: ${productDiscounts.results.length()} (${activeProductDiscounts} active)`);
+    // Step 2: Collect all product discounts and count the ones that are currently active
+    pricingdiscount:ProductDiscount[] productDiscounts = [];
+    offset = 0;
+    while true {
+        pricingdiscount:ProductDiscountPagedQueryResponse page =
+            check commercetools->listProductDiscounts(projectKey, 'limit = pageSize, offset = offset);
+        productDiscounts.push(...page.results);
+        if page.results.length() < pageSize {
+            break;
+        }
+        offset += pageSize;
+    }
+    int activeProductDiscounts = productDiscounts.filter(d => d.isActive).length();
+    io:println(string `Product discounts: ${productDiscounts.length()} (${activeProductDiscounts} active)`);
 
-    // Step 3: Check that every active discount code refers to active cart discounts
-    pricingdiscount:DiscountCodePagedQueryResponse discountCodes =
-        check commercetools->listDiscountCodes(projectKey, 'limit = pageSize);
+    // Step 3: Collect all discount codes and check that every active one refers to active cart discounts
+    pricingdiscount:DiscountCode[] discountCodes = [];
+    offset = 0;
+    while true {
+        pricingdiscount:DiscountCodePagedQueryResponse page =
+            check commercetools->listDiscountCodes(projectKey, 'limit = pageSize, offset = offset);
+        discountCodes.push(...page.results);
+        if page.results.length() < pageSize {
+            break;
+        }
+        offset += pageSize;
+    }
     string[] problems = [];
-    foreach pricingdiscount:DiscountCode discountCode in discountCodes.results {
+    foreach pricingdiscount:DiscountCode discountCode in discountCodes {
         if !discountCode.isActive {
             continue;
         }
@@ -59,7 +81,7 @@ public function main() returns error? {
             }
         }
     }
-    io:println(string `Discount codes: ${discountCodes.results.length()}`);
+    io:println(string `Discount codes: ${discountCodes.length()}`);
 
     if problems.length() > 0 {
         foreach string problem in problems {

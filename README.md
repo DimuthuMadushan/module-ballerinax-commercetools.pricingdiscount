@@ -1,4 +1,4 @@
-# Ballerina Commercetools connector
+# Ballerina Commercetools Pricing Discount connector
 
 [![Build](https://github.com/ballerina-platform/module-ballerinax-commercetools.pricingdiscount/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-commercetools.pricingdiscount/actions/workflows/ci.yml)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerinax-commercetools.pricingdiscount.svg)](https://github.com/ballerina-platform/module-ballerinax-commercetools.pricingdiscount/commits/main)
@@ -9,14 +9,6 @@
 [commercetools](https://commercetools.com/) is a composable commerce platform that provides API-first building blocks for online storefronts, carts, orders, customers and catalogs. Its pricing and discount features let merchants run promotions on carts and products, issue discount codes, and manage the tax categories and rates used to price orders.
 
 The commercetools Pricing and Discount connector lets Ballerina applications manage cart discounts, discount codes, product discounts and tax categories in a commercetools Project. It supports version 1 of the commercetools HTTP API.
-
-### Key features
-
-- Create, query, update and delete cart discounts, by ID or by key
-- Create, query, update and delete discount codes that apply cart discounts at checkout
-- Manage product discounts and look up the discount that matches a product price
-- Maintain tax categories and their tax rates with versioned update actions that protect against concurrent modification
-- Authenticate with the OAuth 2.0 client credentials grant using a commercetools API client
 
 ## Setup guide
 

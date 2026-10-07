@@ -12,8 +12,8 @@ paths:
       operationId: listCartDiscounts
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -22,8 +22,8 @@ paths:
           items:
             type: string
       - name: sort
-        description: Sort expression, such as `createdAt desc`. Can be repeated.
         in: query
+        description: Sort expression, such as `createdAt desc`. Can be repeated
         required: false
         style: form
         explode: true
@@ -32,28 +32,26 @@ paths:
           items:
             type: string
       - name: limit
-        description: Maximum number of results to return. Default 20, maximum 500.
         in: query
+        description: Maximum number of results to return. Default 20, maximum 500
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 20
       - name: offset
-        description: Number of results to skip, for paging. Default 0, maximum 10000.
         in: query
+        description: Number of results to skip, for paging. Default 0, maximum 10000
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 0
       - name: withTotal
-        description: Whether to calculate and return `total` in the response. Default `true`.
         in: query
+        description: Whether to calculate and return `total` in the response. Default `true`
         required: false
         style: form
         explode: true
@@ -61,8 +59,8 @@ paths:
           type: boolean
         x-annotation-default: true
       - name: where
-        description: Query predicate that filters the results. Can be repeated.
         in: query
+        description: Query predicate that filters the results. Can be repeated
         required: false
         style: form
         explode: true
@@ -70,22 +68,6 @@ paths:
           type: array
           items:
             type: string
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: Value for a query predicate input variable, passed as `var.<name>` and referenced
-          as `:<name>` in `where`.
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: array
-          items:
-            type: string
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
-        x-ballerina-name: slashCaretVarAZAZ09
       responses:
         '200':
           description: A paged list of cart discounts
@@ -118,8 +100,8 @@ paths:
       operationId: createCartDiscount
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -160,8 +142,8 @@ paths:
         - manage_cart_discounts:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
@@ -176,8 +158,8 @@ paths:
       operationId: getCartDiscountByKey
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -215,8 +197,8 @@ paths:
       operationId: updateCartDiscountByKey
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -264,17 +246,16 @@ paths:
       operationId: deleteCartDiscountByKey
       parameters:
       - name: version
-        description: Expected current version of the resource, for optimistic concurrency control.
         in: query
+        description: Expected current version of the resource, for optimistic concurrency control
         required: true
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -311,16 +292,16 @@ paths:
         - manage_cart_discounts:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
       schema:
         type: string
     - name: key
-      description: User-defined unique identifier of the resource.
       in: path
+      description: User-defined unique identifier of the resource
       required: true
       style: simple
       explode: false
@@ -333,8 +314,8 @@ paths:
       operationId: getCartDiscountById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -372,8 +353,8 @@ paths:
       operationId: updateCartDiscountById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -421,17 +402,16 @@ paths:
       operationId: deleteCartDiscountById
       parameters:
       - name: version
-        description: Expected current version of the resource, for optimistic concurrency control.
         in: query
+        description: Expected current version of the resource, for optimistic concurrency control
         required: true
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -468,16 +448,16 @@ paths:
         - manage_cart_discounts:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
       schema:
         type: string
     - name: id
-      description: Unique identifier of the resource.
       in: path
+      description: Unique identifier of the resource
       required: true
       style: simple
       explode: false
@@ -492,8 +472,8 @@ paths:
       operationId: listDiscountCodes
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -502,8 +482,8 @@ paths:
           items:
             type: string
       - name: sort
-        description: Sort expression, such as `createdAt desc`. Can be repeated.
         in: query
+        description: Sort expression, such as `createdAt desc`. Can be repeated
         required: false
         style: form
         explode: true
@@ -512,28 +492,26 @@ paths:
           items:
             type: string
       - name: limit
-        description: Maximum number of results to return. Default 20, maximum 500.
         in: query
+        description: Maximum number of results to return. Default 20, maximum 500
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 20
       - name: offset
-        description: Number of results to skip, for paging. Default 0, maximum 10000.
         in: query
+        description: Number of results to skip, for paging. Default 0, maximum 10000
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 0
       - name: withTotal
-        description: Whether to calculate and return `total` in the response. Default `true`.
         in: query
+        description: Whether to calculate and return `total` in the response. Default `true`
         required: false
         style: form
         explode: true
@@ -541,8 +519,8 @@ paths:
           type: boolean
         x-annotation-default: true
       - name: where
-        description: Query predicate that filters the results. Can be repeated.
         in: query
+        description: Query predicate that filters the results. Can be repeated
         required: false
         style: form
         explode: true
@@ -550,22 +528,6 @@ paths:
           type: array
           items:
             type: string
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: Value for a query predicate input variable, passed as `var.<name>` and referenced
-          as `:<name>` in `where`.
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: array
-          items:
-            type: string
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
-        x-ballerina-name: slashCaretVarAZAZ09
       responses:
         '200':
           description: A paged list of discount codes
@@ -600,8 +562,8 @@ paths:
       operationId: createDiscountCode
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -641,8 +603,8 @@ paths:
         - manage_discount_codes:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
@@ -658,8 +620,8 @@ paths:
       operationId: getDiscountCodeById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -697,8 +659,8 @@ paths:
       operationId: updateDiscountCodeById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -748,8 +710,8 @@ paths:
       operationId: deleteDiscountCodeById
       parameters:
       - name: dataErasure
-        description: Whether to erase all personal data related to the resource. Default `false`.
         in: query
+        description: Whether to erase all personal data related to the resource. Default `false`
         required: false
         style: form
         explode: true
@@ -757,17 +719,16 @@ paths:
           type: boolean
         x-annotation-default: false
       - name: version
-        description: Expected current version of the resource, for optimistic concurrency control.
         in: query
+        description: Expected current version of the resource, for optimistic concurrency control
         required: true
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -803,16 +764,16 @@ paths:
         - manage_discount_codes:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
       schema:
         type: string
     - name: id
-      description: Unique identifier of the resource.
       in: path
+      description: Unique identifier of the resource
       required: true
       style: simple
       explode: false
@@ -826,8 +787,8 @@ paths:
       operationId: listProductDiscounts
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -836,8 +797,8 @@ paths:
           items:
             type: string
       - name: sort
-        description: Sort expression, such as `createdAt desc`. Can be repeated.
         in: query
+        description: Sort expression, such as `createdAt desc`. Can be repeated
         required: false
         style: form
         explode: true
@@ -846,28 +807,26 @@ paths:
           items:
             type: string
       - name: limit
-        description: Maximum number of results to return. Default 20, maximum 500.
         in: query
+        description: Maximum number of results to return. Default 20, maximum 500
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 20
       - name: offset
-        description: Number of results to skip, for paging. Default 0, maximum 10000.
         in: query
+        description: Number of results to skip, for paging. Default 0, maximum 10000
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 0
       - name: withTotal
-        description: Whether to calculate and return `total` in the response. Default `true`.
         in: query
+        description: Whether to calculate and return `total` in the response. Default `true`
         required: false
         style: form
         explode: true
@@ -875,8 +834,8 @@ paths:
           type: boolean
         x-annotation-default: true
       - name: where
-        description: Query predicate that filters the results. Can be repeated.
         in: query
+        description: Query predicate that filters the results. Can be repeated
         required: false
         style: form
         explode: true
@@ -884,22 +843,6 @@ paths:
           type: array
           items:
             type: string
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: Value for a query predicate input variable, passed as `var.<name>` and referenced
-          as `:<name>` in `where`.
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: array
-          items:
-            type: string
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
-        x-ballerina-name: slashCaretVarAZAZ09
       responses:
         '200':
           description: A paged list of product discounts
@@ -930,8 +873,8 @@ paths:
       operationId: createProductDiscount
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -972,8 +915,8 @@ paths:
         - manage_products:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
@@ -988,8 +931,8 @@ paths:
       operationId: getProductDiscountByKey
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1027,8 +970,8 @@ paths:
       operationId: updateProductDiscountByKey
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1074,17 +1017,16 @@ paths:
       operationId: deleteProductDiscountByKey
       parameters:
       - name: version
-        description: Expected current version of the resource, for optimistic concurrency control.
         in: query
+        description: Expected current version of the resource, for optimistic concurrency control
         required: true
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1121,16 +1063,16 @@ paths:
         - manage_products:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
       schema:
         type: string
     - name: key
-      description: User-defined unique identifier of the resource.
       in: path
+      description: User-defined unique identifier of the resource
       required: true
       style: simple
       explode: false
@@ -1184,8 +1126,8 @@ paths:
         - view_products:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
@@ -1197,8 +1139,8 @@ paths:
       operationId: getProductDiscountById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1236,8 +1178,8 @@ paths:
       operationId: updateProductDiscountById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1283,17 +1225,16 @@ paths:
       operationId: deleteProductDiscountById
       parameters:
       - name: version
-        description: Expected current version of the resource, for optimistic concurrency control.
         in: query
+        description: Expected current version of the resource, for optimistic concurrency control
         required: true
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1330,16 +1271,16 @@ paths:
         - manage_products:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
       schema:
         type: string
     - name: id
-      description: Unique identifier of the resource.
       in: path
+      description: Unique identifier of the resource
       required: true
       style: simple
       explode: false
@@ -1353,8 +1294,8 @@ paths:
       operationId: listTaxCategories
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1363,8 +1304,8 @@ paths:
           items:
             type: string
       - name: sort
-        description: Sort expression, such as `createdAt desc`. Can be repeated.
         in: query
+        description: Sort expression, such as `createdAt desc`. Can be repeated
         required: false
         style: form
         explode: true
@@ -1373,28 +1314,26 @@ paths:
           items:
             type: string
       - name: limit
-        description: Maximum number of results to return. Default 20, maximum 500.
         in: query
+        description: Maximum number of results to return. Default 20, maximum 500
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 20
       - name: offset
-        description: Number of results to skip, for paging. Default 0, maximum 10000.
         in: query
+        description: Number of results to skip, for paging. Default 0, maximum 10000
         required: false
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
         x-annotation-default: 0
       - name: withTotal
-        description: Whether to calculate and return `total` in the response. Default `true`.
         in: query
+        description: Whether to calculate and return `total` in the response. Default `true`
         required: false
         style: form
         explode: true
@@ -1402,8 +1341,8 @@ paths:
           type: boolean
         x-annotation-default: true
       - name: where
-        description: Query predicate that filters the results. Can be repeated.
         in: query
+        description: Query predicate that filters the results. Can be repeated
         required: false
         style: form
         explode: true
@@ -1411,22 +1350,6 @@ paths:
           type: array
           items:
             type: string
-      - name: /^var[.][a-zA-Z0-9]+$/
-        description: Value for a query predicate input variable, passed as `var.<name>` and referenced
-          as `:<name>` in `where`.
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: array
-          items:
-            type: string
-        x-annotation-placeholderParam:
-          paramName: predicateVar
-          template: var.<varName>
-          placeholder: varName
-        x-ballerina-name: slashCaretVarAZAZ09
       responses:
         '200':
           description: A paged list of tax categories
@@ -1457,8 +1380,8 @@ paths:
       operationId: createTaxCategory
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1499,8 +1422,8 @@ paths:
         - manage_tax_categories:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
@@ -1515,8 +1438,8 @@ paths:
       operationId: getTaxCategoryByKey
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1554,8 +1477,8 @@ paths:
       operationId: updateTaxCategoryByKey
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1603,17 +1526,16 @@ paths:
       operationId: deleteTaxCategoryByKey
       parameters:
       - name: version
-        description: Expected current version of the resource, for optimistic concurrency control.
         in: query
+        description: Expected current version of the resource, for optimistic concurrency control
         required: true
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1650,16 +1572,16 @@ paths:
         - manage_tax_categories:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
       schema:
         type: string
     - name: key
-      description: User-defined unique identifier of the resource.
       in: path
+      description: User-defined unique identifier of the resource
       required: true
       style: simple
       explode: false
@@ -1672,8 +1594,8 @@ paths:
       operationId: getTaxCategoryById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1711,8 +1633,8 @@ paths:
       operationId: updateTaxCategoryById
       parameters:
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1760,17 +1682,16 @@ paths:
       operationId: deleteTaxCategoryById
       parameters:
       - name: version
-        description: Expected current version of the resource, for optimistic concurrency control.
         in: query
+        description: Expected current version of the resource, for optimistic concurrency control
         required: true
         style: form
         explode: true
         schema:
-          type: number
-          format: double
+          type: integer
       - name: expand
-        description: Reference path to expand in the response. Can be repeated.
         in: query
+        description: Reference path to expand in the response. Can be repeated
         required: false
         style: form
         explode: true
@@ -1807,16 +1728,16 @@ paths:
         - manage_tax_categories:{projectKey}
     parameters:
     - name: projectKey
-      description: '`key` of the Project.'
       in: path
+      description: '`key` of the Project'
       required: true
       style: simple
       explode: false
       schema:
         type: string
     - name: id
-      description: Unique identifier of the resource.
       in: path
+      description: Unique identifier of the resource
       required: true
       style: simple
       explode: false

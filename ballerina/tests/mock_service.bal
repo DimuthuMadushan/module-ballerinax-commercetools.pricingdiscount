@@ -18,7 +18,6 @@ import ballerina/http;
 
 const string MISSING_ID = "missing-id";
 const int STALE_VERSION = 999;
-const decimal STALE_VERSION_QUERY = 999;
 
 // A path segment is either an ID or `key=<key>`.
 function isMissing(string idOrKey) returns boolean => idOrKey == MISSING_ID || idOrKey == "key=" + MISSING_ID;
@@ -129,12 +128,12 @@ service / on ep0 {
     # + version - Last seen version of the resource
     # + expand - Reference expansion paths
     # + return - The deleted cart discount, or an error response
-    resource function delete [string projectKey]/cart\-discounts/[string id](decimal version, string[]? expand)
+    resource function delete [string projectKey]/cart\-discounts/[string id](int version, string[]? expand)
             returns CartDiscount|ErrorResponseConflict|http:NotFound {
         if isMissing(id) {
             return http:NOT_FOUND;
         }
-        if version == STALE_VERSION_QUERY {
+        if version == STALE_VERSION {
             return <ErrorResponseConflict>{body: staleVersionError()};
         }
         return cartDiscountFor(id);
@@ -148,12 +147,12 @@ service / on ep0 {
     # + version - Last seen version of the resource
     # + expand - Reference expansion paths
     # + return - The deleted discount code, or an error response
-    resource function delete [string projectKey]/discount\-codes/[string id](boolean? dataErasure, decimal version,
+    resource function delete [string projectKey]/discount\-codes/[string id](boolean? dataErasure, int version,
             string[]? expand) returns DiscountCode|ErrorResponseConflict|http:NotFound {
         if id == MISSING_ID {
             return http:NOT_FOUND;
         }
-        if version == STALE_VERSION_QUERY {
+        if version == STALE_VERSION {
             return <ErrorResponseConflict>{body: staleVersionError()};
         }
         return mockDiscountCode(id);
@@ -166,12 +165,12 @@ service / on ep0 {
     # + version - Last seen version of the resource
     # + expand - Reference expansion paths
     # + return - The deleted product discount, or an error response
-    resource function delete [string projectKey]/product\-discounts/[string id](decimal version, string[]? expand)
+    resource function delete [string projectKey]/product\-discounts/[string id](int version, string[]? expand)
             returns ProductDiscount|ErrorResponseConflict|http:NotFound {
         if id == MISSING_ID {
             return http:NOT_FOUND;
         }
-        if version == STALE_VERSION_QUERY {
+        if version == STALE_VERSION {
             return <ErrorResponseConflict>{body: staleVersionError()};
         }
         return mockProductDiscount(id);
@@ -184,12 +183,12 @@ service / on ep0 {
     # + version - Last seen version of the resource
     # + expand - Reference expansion paths
     # + return - The deleted tax category, or an error response
-    resource function delete [string projectKey]/tax\-categories/[string id](decimal version, string[]? expand)
+    resource function delete [string projectKey]/tax\-categories/[string id](int version, string[]? expand)
             returns TaxCategory|ErrorResponseConflict|http:NotFound {
         if id == MISSING_ID {
             return http:NOT_FOUND;
         }
-        if version == STALE_VERSION_QUERY {
+        if version == STALE_VERSION {
             return <ErrorResponseConflict>{body: staleVersionError()};
         }
         return mockTaxCategory(id);
@@ -204,11 +203,9 @@ service / on ep0 {
     # + offset - Number of results to skip
     # + withTotal - Whether to include the total count
     # + 'where - Query predicates
-    # + slashCaretVarAZAZ09 - Predicate variables
     # + return - A paged list of cart discounts
-    resource function get [string projectKey]/cart\-discounts(string[]? expand, string[]? sort, decimal? 'limit,
-            decimal? offset, boolean? withTotal, string[]? 'where,
-            @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"} string[]? slashCaretVarAZAZ09)
+    resource function get [string projectKey]/cart\-discounts(string[]? expand, string[]? sort, int? 'limit,
+            int? offset, boolean? withTotal, string[]? 'where)
             returns CartDiscountPagedQueryResponse {
         return {
             total: 2,
@@ -242,11 +239,9 @@ service / on ep0 {
     # + offset - Number of results to skip
     # + withTotal - Whether to include the total count
     # + 'where - Query predicates
-    # + slashCaretVarAZAZ09 - Predicate variables
     # + return - A paged list of discount codes
-    resource function get [string projectKey]/discount\-codes(string[]? expand, string[]? sort, decimal? 'limit,
-            decimal? offset, boolean? withTotal, string[]? 'where,
-            @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"} string[]? slashCaretVarAZAZ09)
+    resource function get [string projectKey]/discount\-codes(string[]? expand, string[]? sort, int? 'limit,
+            int? offset, boolean? withTotal, string[]? 'where)
             returns DiscountCodePagedQueryResponse {
         return {
             total: 1,
@@ -280,11 +275,9 @@ service / on ep0 {
     # + offset - Number of results to skip
     # + withTotal - Whether to include the total count
     # + 'where - Query predicates
-    # + slashCaretVarAZAZ09 - Predicate variables
     # + return - A paged list of product discounts
-    resource function get [string projectKey]/product\-discounts(string[]? expand, string[]? sort, decimal? 'limit,
-            decimal? offset, boolean? withTotal, string[]? 'where,
-            @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"} string[]? slashCaretVarAZAZ09)
+    resource function get [string projectKey]/product\-discounts(string[]? expand, string[]? sort, int? 'limit,
+            int? offset, boolean? withTotal, string[]? 'where)
             returns ProductDiscountPagedQueryResponse {
         return {
             total: 2,
@@ -318,11 +311,9 @@ service / on ep0 {
     # + offset - Number of results to skip
     # + withTotal - Whether to include the total count
     # + 'where - Query predicates
-    # + slashCaretVarAZAZ09 - Predicate variables
     # + return - A paged list of tax categories
-    resource function get [string projectKey]/tax\-categories(string[]? expand, string[]? sort, decimal? 'limit,
-            decimal? offset, boolean? withTotal, string[]? 'where,
-            @http:Query {name: "/^var[.][a-zA-Z0-9]+$/"} string[]? slashCaretVarAZAZ09)
+    resource function get [string projectKey]/tax\-categories(string[]? expand, string[]? sort, int? 'limit,
+            int? offset, boolean? withTotal, string[]? 'where)
             returns TaxCategoryPagedQueryResponse {
         return {
             total: 2,

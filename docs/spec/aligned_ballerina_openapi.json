@@ -18,8 +18,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -32,8 +32,8 @@
                     },
                     {
                         "name": "sort",
-                        "description": "Sort expression, such as `createdAt desc`. Can be repeated.",
                         "in": "query",
+                        "description": "Sort expression, such as `createdAt desc`. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -46,34 +46,32 @@
                     },
                     {
                         "name": "limit",
-                        "description": "Maximum number of results to return. Default 20, maximum 500.",
                         "in": "query",
+                        "description": "Maximum number of results to return. Default 20, maximum 500",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 20
                     },
                     {
                         "name": "offset",
-                        "description": "Number of results to skip, for paging. Default 0, maximum 10000.",
                         "in": "query",
+                        "description": "Number of results to skip, for paging. Default 0, maximum 10000",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 0
                     },
                     {
                         "name": "withTotal",
-                        "description": "Whether to calculate and return `total` in the response. Default `true`.",
                         "in": "query",
+                        "description": "Whether to calculate and return `total` in the response. Default `true`",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -84,8 +82,8 @@
                     },
                     {
                         "name": "where",
-                        "description": "Query predicate that filters the results. Can be repeated.",
                         "in": "query",
+                        "description": "Query predicate that filters the results. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -95,26 +93,6 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    {
-                        "name": "/^var[.][a-zA-Z0-9]+$/",
-                        "description": "Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.",
-                        "in": "query",
-                        "required": false,
-                        "style": "form",
-                        "explode": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "x-annotation-placeholderParam": {
-                            "paramName": "predicateVar",
-                            "template": "var.<varName>",
-                            "placeholder": "varName"
-                        },
-                        "x-ballerina-name": "slashCaretVarAZAZ09"
                     }
                 ],
                 "responses": {
@@ -166,8 +144,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -234,8 +212,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -255,8 +233,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -316,8 +294,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -391,20 +369,19 @@
                 "parameters": [
                     {
                         "name": "version",
-                        "description": "Expected current version of the resource, for optimistic concurrency control.",
                         "in": "query",
+                        "description": "Expected current version of the resource, for optimistic concurrency control",
                         "required": true,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         }
                     },
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -464,8 +441,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -475,8 +452,8 @@
                 },
                 {
                     "name": "key",
-                    "description": "User-defined unique identifier of the resource.",
                     "in": "path",
+                    "description": "User-defined unique identifier of the resource",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -494,8 +471,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -555,8 +532,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -630,20 +607,19 @@
                 "parameters": [
                     {
                         "name": "version",
-                        "description": "Expected current version of the resource, for optimistic concurrency control.",
                         "in": "query",
+                        "description": "Expected current version of the resource, for optimistic concurrency control",
                         "required": true,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         }
                     },
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -703,8 +679,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -714,8 +690,8 @@
                 },
                 {
                     "name": "id",
-                    "description": "Unique identifier of the resource.",
                     "in": "path",
+                    "description": "Unique identifier of the resource",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -735,8 +711,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -749,8 +725,8 @@
                     },
                     {
                         "name": "sort",
-                        "description": "Sort expression, such as `createdAt desc`. Can be repeated.",
                         "in": "query",
+                        "description": "Sort expression, such as `createdAt desc`. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -763,34 +739,32 @@
                     },
                     {
                         "name": "limit",
-                        "description": "Maximum number of results to return. Default 20, maximum 500.",
                         "in": "query",
+                        "description": "Maximum number of results to return. Default 20, maximum 500",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 20
                     },
                     {
                         "name": "offset",
-                        "description": "Number of results to skip, for paging. Default 0, maximum 10000.",
                         "in": "query",
+                        "description": "Number of results to skip, for paging. Default 0, maximum 10000",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 0
                     },
                     {
                         "name": "withTotal",
-                        "description": "Whether to calculate and return `total` in the response. Default `true`.",
                         "in": "query",
+                        "description": "Whether to calculate and return `total` in the response. Default `true`",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -801,8 +775,8 @@
                     },
                     {
                         "name": "where",
-                        "description": "Query predicate that filters the results. Can be repeated.",
                         "in": "query",
+                        "description": "Query predicate that filters the results. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -812,26 +786,6 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    {
-                        "name": "/^var[.][a-zA-Z0-9]+$/",
-                        "description": "Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.",
-                        "in": "query",
-                        "required": false,
-                        "style": "form",
-                        "explode": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "x-annotation-placeholderParam": {
-                            "paramName": "predicateVar",
-                            "template": "var.<varName>",
-                            "placeholder": "varName"
-                        },
-                        "x-ballerina-name": "slashCaretVarAZAZ09"
                     }
                 ],
                 "responses": {
@@ -882,8 +836,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -949,8 +903,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -971,8 +925,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1032,8 +986,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1106,8 +1060,8 @@
                 "parameters": [
                     {
                         "name": "dataErasure",
-                        "description": "Whether to erase all personal data related to the resource. Default `false`.",
                         "in": "query",
+                        "description": "Whether to erase all personal data related to the resource. Default `false`",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1118,20 +1072,19 @@
                     },
                     {
                         "name": "version",
-                        "description": "Expected current version of the resource, for optimistic concurrency control.",
                         "in": "query",
+                        "description": "Expected current version of the resource, for optimistic concurrency control",
                         "required": true,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         }
                     },
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1190,8 +1143,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -1201,8 +1154,8 @@
                 },
                 {
                     "name": "id",
-                    "description": "Unique identifier of the resource.",
                     "in": "path",
+                    "description": "Unique identifier of the resource",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -1221,8 +1174,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1235,8 +1188,8 @@
                     },
                     {
                         "name": "sort",
-                        "description": "Sort expression, such as `createdAt desc`. Can be repeated.",
                         "in": "query",
+                        "description": "Sort expression, such as `createdAt desc`. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1249,34 +1202,32 @@
                     },
                     {
                         "name": "limit",
-                        "description": "Maximum number of results to return. Default 20, maximum 500.",
                         "in": "query",
+                        "description": "Maximum number of results to return. Default 20, maximum 500",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 20
                     },
                     {
                         "name": "offset",
-                        "description": "Number of results to skip, for paging. Default 0, maximum 10000.",
                         "in": "query",
+                        "description": "Number of results to skip, for paging. Default 0, maximum 10000",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 0
                     },
                     {
                         "name": "withTotal",
-                        "description": "Whether to calculate and return `total` in the response. Default `true`.",
                         "in": "query",
+                        "description": "Whether to calculate and return `total` in the response. Default `true`",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1287,8 +1238,8 @@
                     },
                     {
                         "name": "where",
-                        "description": "Query predicate that filters the results. Can be repeated.",
                         "in": "query",
+                        "description": "Query predicate that filters the results. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1298,26 +1249,6 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    {
-                        "name": "/^var[.][a-zA-Z0-9]+$/",
-                        "description": "Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.",
-                        "in": "query",
-                        "required": false,
-                        "style": "form",
-                        "explode": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "x-annotation-placeholderParam": {
-                            "paramName": "predicateVar",
-                            "template": "var.<varName>",
-                            "placeholder": "varName"
-                        },
-                        "x-ballerina-name": "slashCaretVarAZAZ09"
                     }
                 ],
                 "responses": {
@@ -1368,8 +1299,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1436,8 +1367,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -1457,8 +1388,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1518,8 +1449,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1592,20 +1523,19 @@
                 "parameters": [
                     {
                         "name": "version",
-                        "description": "Expected current version of the resource, for optimistic concurrency control.",
                         "in": "query",
+                        "description": "Expected current version of the resource, for optimistic concurrency control",
                         "required": true,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         }
                     },
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1665,8 +1595,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -1676,8 +1606,8 @@
                 },
                 {
                     "name": "key",
-                    "description": "User-defined unique identifier of the resource.",
                     "in": "path",
+                    "description": "User-defined unique identifier of the resource",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -1748,8 +1678,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -1766,8 +1696,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1827,8 +1757,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1901,20 +1831,19 @@
                 "parameters": [
                     {
                         "name": "version",
-                        "description": "Expected current version of the resource, for optimistic concurrency control.",
                         "in": "query",
+                        "description": "Expected current version of the resource, for optimistic concurrency control",
                         "required": true,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         }
                     },
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -1974,8 +1903,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -1985,8 +1914,8 @@
                 },
                 {
                     "name": "id",
-                    "description": "Unique identifier of the resource.",
                     "in": "path",
+                    "description": "Unique identifier of the resource",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -2005,8 +1934,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2019,8 +1948,8 @@
                     },
                     {
                         "name": "sort",
-                        "description": "Sort expression, such as `createdAt desc`. Can be repeated.",
                         "in": "query",
+                        "description": "Sort expression, such as `createdAt desc`. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2033,34 +1962,32 @@
                     },
                     {
                         "name": "limit",
-                        "description": "Maximum number of results to return. Default 20, maximum 500.",
                         "in": "query",
+                        "description": "Maximum number of results to return. Default 20, maximum 500",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 20
                     },
                     {
                         "name": "offset",
-                        "description": "Number of results to skip, for paging. Default 0, maximum 10000.",
                         "in": "query",
+                        "description": "Number of results to skip, for paging. Default 0, maximum 10000",
                         "required": false,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         },
                         "x-annotation-default": 0
                     },
                     {
                         "name": "withTotal",
-                        "description": "Whether to calculate and return `total` in the response. Default `true`.",
                         "in": "query",
+                        "description": "Whether to calculate and return `total` in the response. Default `true`",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2071,8 +1998,8 @@
                     },
                     {
                         "name": "where",
-                        "description": "Query predicate that filters the results. Can be repeated.",
                         "in": "query",
+                        "description": "Query predicate that filters the results. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2082,26 +2009,6 @@
                                 "type": "string"
                             }
                         }
-                    },
-                    {
-                        "name": "/^var[.][a-zA-Z0-9]+$/",
-                        "description": "Value for a query predicate input variable, passed as `var.<name>` and referenced as `:<name>` in `where`.",
-                        "in": "query",
-                        "required": false,
-                        "style": "form",
-                        "explode": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "x-annotation-placeholderParam": {
-                            "paramName": "predicateVar",
-                            "template": "var.<varName>",
-                            "placeholder": "varName"
-                        },
-                        "x-ballerina-name": "slashCaretVarAZAZ09"
                     }
                 ],
                 "responses": {
@@ -2152,8 +2059,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2220,8 +2127,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -2241,8 +2148,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2302,8 +2209,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2377,20 +2284,19 @@
                 "parameters": [
                     {
                         "name": "version",
-                        "description": "Expected current version of the resource, for optimistic concurrency control.",
                         "in": "query",
+                        "description": "Expected current version of the resource, for optimistic concurrency control",
                         "required": true,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         }
                     },
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2450,8 +2356,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -2461,8 +2367,8 @@
                 },
                 {
                     "name": "key",
-                    "description": "User-defined unique identifier of the resource.",
                     "in": "path",
+                    "description": "User-defined unique identifier of the resource",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -2480,8 +2386,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2541,8 +2447,8 @@
                 "parameters": [
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2616,20 +2522,19 @@
                 "parameters": [
                     {
                         "name": "version",
-                        "description": "Expected current version of the resource, for optimistic concurrency control.",
                         "in": "query",
+                        "description": "Expected current version of the resource, for optimistic concurrency control",
                         "required": true,
                         "style": "form",
                         "explode": true,
                         "schema": {
-                            "type": "number",
-                            "format": "double"
+                            "type": "integer"
                         }
                     },
                     {
                         "name": "expand",
-                        "description": "Reference path to expand in the response. Can be repeated.",
                         "in": "query",
+                        "description": "Reference path to expand in the response. Can be repeated",
                         "required": false,
                         "style": "form",
                         "explode": true,
@@ -2689,8 +2594,8 @@
             "parameters": [
                 {
                     "name": "projectKey",
-                    "description": "`key` of the Project.",
                     "in": "path",
+                    "description": "`key` of the Project",
                     "required": true,
                     "style": "simple",
                     "explode": false,
@@ -2700,8 +2605,8 @@
                 },
                 {
                     "name": "id",
-                    "description": "Unique identifier of the resource.",
                     "in": "path",
+                    "description": "Unique identifier of the resource",
                     "required": true,
                     "style": "simple",
                     "explode": false,

@@ -21,7 +21,7 @@ projectKey = "<project-key>"
 pageSize = 50
 ```
 
-The example only reads data. Cart discounts are read page by page, `pageSize` at a time, until a short page is returned.
+The example only reads data. Cart discounts, product discounts and discount codes are each read page by page, `pageSize` (an integer greater than 0) at a time, until a short page is returned.
 
 ## Run the example
 
